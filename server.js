@@ -18,6 +18,8 @@ mongoose.connect("mongodb+srv://oyeda:oyeda@cluster0.nfskq.mongodb.net/virt-pho-
 
 app.use("/", postRoutes);
 
+const __dirname = path.dirname('/Users/daoyeyemi/Desktop/portfolioprojects/virtualphotoalbum/server.js')
+
 app.use(express.static(path.join(__dirname, "frontend", "build")))
 
 app.get("*", (req, res) => {
