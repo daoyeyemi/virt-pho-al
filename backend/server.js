@@ -18,13 +18,13 @@ app.use(cors());
 mongoose.connect("mongodb+srv://oyeda:oyeda@cluster0.nfskq.mongodb.net/virt-pho-album-posts", { useNewUrlParser: true, useUnifiedTopology: true });
 
 
-// const __dirname = path.dirname(fileURLToPath(import.meta.url))
+const __dirname = path.dirname(fileURLToPath(import.meta.url))
 
-// app.use(express.static("frontend/build"));
+app.use(express.static(path.join(__dirname, '../frontend/build')));
 
-// // app.get("*", (req, res) => {
-// //     res.sendFile(path.join(__dirname, "frontend", "build", "index.html"));
-// // });
+app.get("*", (req, res) => {
+    res.sendFile(path.join(__dirname + "/../frontend/build/index.html"));
+});
 
 app.use("/", postRoutes);
 
