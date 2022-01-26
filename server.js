@@ -1,8 +1,9 @@
+import * as path from 'path';
+
 import bodyParser from '../frontend/node_modules/@types/body-parser';
 import cors from 'cors';
 import express from '../frontend/node_modules/@types/express';
 import mongoose from 'mongoose';
-import path from 'path';
 import postRoutes from './routes/postRoutes.js';
 
 const app = express();
