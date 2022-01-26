@@ -1,8 +1,8 @@
 import * as path from 'path';
 
-import bodyParser from '../frontend/node_modules/@types/body-parser';
+import bodyParser from 'body-parser';
 import cors from 'cors';
-import express from '../frontend/node_modules/@types/express';
+import express from 'express';
 import mongoose from 'mongoose';
 import postRoutes from './routes/postRoutes.js';
 
