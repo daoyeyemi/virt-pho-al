@@ -3,6 +3,7 @@ import * as path from 'path';
 import bodyParser from 'body-parser';
 import cors from 'cors';
 import express from 'express';
+import { fileURLToPath } from 'url';
 import mongoose from 'mongoose';
 import postRoutes from './routes/postRoutes.js';
 
@@ -18,7 +19,7 @@ mongoose.connect("mongodb+srv://oyeda:oyeda@cluster0.nfskq.mongodb.net/virt-pho-
 
 app.use("/", postRoutes);
 
-const __dirname = path.dirname('/Users/daoyeyemi/Desktop/portfolioprojects/virtualphotoalbum/server.js')
+const __dirname = path.dirname(fileURLToPath(import.meta.url))
 
 app.use(express.static(path.join(__dirname, "frontend", "build")))
 
