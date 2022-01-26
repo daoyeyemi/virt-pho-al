@@ -1,5 +1,5 @@
 import Post from "../models/postModel.js";
-import express from 'express';
+import express from '../../frontend/node_modules/@types/express';
 const router = express.Router();
 
 // we're using this to post user input into mongodb database
