@@ -17,15 +17,16 @@ app.use(cors());
 
 mongoose.connect("mongodb+srv://oyeda:oyeda@cluster0.nfskq.mongodb.net/virt-pho-album-posts", { useNewUrlParser: true, useUnifiedTopology: true });
 
-app.use("/", postRoutes);
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url))
 
-app.use(express.static(path.join(__dirname, "frontend", "build")))
+app.use(express.static("frontend/build"));
 
-app.get("*", (req, res) => {
-    res.sendFile(path.join(__dirname, "frontend", "build", "index.html"));
-});
+// app.get("*", (req, res) => {
+//     res.sendFile(path.join(__dirname, "frontend", "build", "index.html"));
+// });
+
+app.use("/", postRoutes);
 
 app.listen(3001, () => {
     console.log('Server is currently running on port 3001')
