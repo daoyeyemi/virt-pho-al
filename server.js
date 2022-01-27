@@ -15,7 +15,7 @@ app.use(cors());
 
 mongoose.connect(process.env.MONGODB_URI || "mongodb+srv://oyeda:oyeda@cluster0.nfskq.mongodb.net/virt-pho-album-posts", { useNewUrlParser: true, useUnifiedTopology: true });
 
-app.use(express.static('../frontend/build'));
+app.use(express.static('frontend/build'));
 
 app.use("/", postRoutes);
 
