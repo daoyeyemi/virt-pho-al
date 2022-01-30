@@ -1,6 +1,7 @@
 import { Route, BrowserRouter as Router, Routes } from 'react-router-dom';
 
 import CreatePost from './components/CreatePost';
+import EditPost from './components/EditPost';
 import Home from './components/Home';
 import IndividualPost from './components/IndividualPost';
 import Login from './components/Login';
@@ -20,6 +21,7 @@ const App = () => {
                 <Route exact path="/individualproduct" element={<IndividualPost />} />
                 <Route exact path="/posts" element={<Posts />} />
                 <Route exact path="/create" element={<CreatePost />} />
+                <Route exact path="/edit/:id" element={<EditPost />} />
             </Routes>
         </Router>
     );
