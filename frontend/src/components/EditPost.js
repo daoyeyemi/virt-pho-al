@@ -1,7 +1,8 @@
 import React, { useEffect, useState } from 'react';
-
 // import { Post } from "../../models/postModel";
-import { useParams } from 'react-router-dom';
+import { useNavigate, useParams } from 'react-router-dom';
+
+import axios from 'axios';
 
 const EditPost = () => {
     //  we need to take extract id # from url and use mongodb functions
@@ -10,10 +11,6 @@ const EditPost = () => {
         title: '',
         description: '',
         file: ''
-    })
-
-    const [clone, setClone] = useState({
-
     })
 
     const { id } = useParams();
@@ -29,6 +26,7 @@ const EditPost = () => {
     }, []);
     
     // setClone(post);
+    const history = useNavigate(); 
 
     const handleChange = (event) => {
         const name = event.target.name;
@@ -46,32 +44,42 @@ const EditPost = () => {
     //     // setUser(resp)
     // }
 
-    // const handleSubmit = (event) => {
-    //     event.preventDefault();
+    const handleSubmit = (event) => {
+        event.preventDefault();
 
-    //     console.log("Submitted");
-    // }
+        const editedPost = {
+            title : post.title,
+            description : post.description,
+            file : post.file
+        }
+
+        console.log("Submitted");
+
+        axios.put(`http://localhost:3001/edit/${id}`, editedPost);
+
+        history("/posts")
+    }
 
   return (
-    <form>
-        <div>
-            <input onChange={handleChange} className="form-control" name="title" type="text" value={post.title} placeholder="input title here" aria-label="title" />
-        </div>
-        <div>
-            <textarea onChange={handleChange} className="form-control" name="description" type="text" value={post.description} placeholder="input description here" rows="3"></textarea>
-        </div>
-        <div>
-            {/* <FileBase64 
-                multiple={false} 
-                // base64 is the file name
-                onDone={({ base64 }) => {
-                    setPost({ ...post, file: base64 })
-                    console.log(post)
-                }} 
-            /> */}
-        </div>
-        <button type="submit" className="btn btn-primary">Submit</button>
-    </form>
+        <form onSubmit={handleSubmit}>
+            <div>
+                <input onChange={handleChange} className="form-control" name="title" type="text" value={post.title} placeholder="input title here" aria-label="title" />
+            </div>
+            <div>
+                <textarea onChange={handleChange} className="form-control" name="description" type="text" value={post.description} placeholder="input description here" rows="3"></textarea>
+            </div>
+            {/* <div>
+                <FileBase64 
+                    multiple={false} 
+                    // base64 is the file name
+                    onDone={({ base64 }) => {
+                        setPost({ ...post, file: base64 })
+                        console.log(post)
+                    }} 
+                />
+            </div> */}
+            <button type="submit" className="btn btn-primary">Submit</button>
+        </form>
   );
 };
 
