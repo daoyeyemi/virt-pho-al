@@ -10,8 +10,8 @@ const PORT = 3001;
 
 app.use(express.json());
 
-app.use(bodyParser.json({ limit: '30mb', extended: true }))
-app.use(bodyParser.urlencoded({ limit: '30mb', extended: true }))
+app.use(bodyParser.json({ limit: '100mb', extended: true }))
+app.use(bodyParser.urlencoded({ limit: '100mb', extended: true }))
 app.use(cors());
 
 // mongoose.connect(process.env.MONGODB_URI || "mongodb+srv://oyeda:oyeda@cluster0.nfskq.mongodb.net/virt-pho-album-posts", { useNewUrlParser: true, useUnifiedTopology: true });

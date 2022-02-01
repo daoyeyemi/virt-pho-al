@@ -21,9 +21,35 @@ router.post("/create", (req, res) => {
     newPost.save();
 })
 
+router.get("/edit/:id", async (req, res) => {
+    await Post.findById(req.params.id)
+        .then(data => res.json(data))
+});
+
+router.delete("/edit/:id", async (req, res) => {
+    await Post.deleteOne({
+        _id: req.params.id
+    })
+})
+
+router.put("/edit/:id", async (req, res) => {
+    // let post = await Post.findById(req.params.id);
+
+    let post = req.body;
+
+    // const editedPost = new Post(post);
+
+    await Post.updateOne({
+        _id: req.params.id
+    }, post)
+
+    // editedPost.save();
+})
+
 // retrieve data and place back into ui
 router.get("/posts", async (req, res) => {
-    await Post.find().then(posts => res.json(posts));
+    await Post.find()
+        .then(posts => res.json(posts));
 })
 
 export default router;
