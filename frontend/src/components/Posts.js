@@ -24,15 +24,9 @@ const Posts = () => {
             .then(jsonRes => setPosts(jsonRes));  
             // console.log(jsonRes)
             // console.log(posts)     
-    })
-    if (posts.title === "") {
-        return (
-            <div>
-                <p>no posts yet...</p>
-                <p>create one <Link to={"/create"}>here</Link></p>
-            </div>
-        )
-    } else {
+    });
+
+    if (posts) {
         return (
                 <div>
                     {posts.map((yooo, index) =>
@@ -54,6 +48,13 @@ const Posts = () => {
                     </div> */}
                 </div>
             );
+    } else {
+        return (
+            <div>
+                <p>no posts yet...</p>
+                <p>create one <Link to={"/create"}>here</Link></p>
+            </div>
+        )
     }
     
 };
