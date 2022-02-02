@@ -26,37 +26,37 @@ const Posts = () => {
             // console.log(posts)     
     });
 
-    if (posts) {
+    // if (posts) {
+    //     return (
+    //             <div>
+    //                 {posts.map((yooo, index) =>
+    //                     <IndividualPost post={yooo} key={index} />
+    //                 )}            
+    //                 {/* <div style={{ borderRadius : "5%", borderColor : 'gray' }}>
+    //                     <div>
+    //                         <img src={picture} alt="picture" />
+    //                     </div>
+    //                     <div>
+    //                     <h2>title: a day on the beach</h2> 
+    //                     </div>
+    //                     <div>
+    //                         <h2>description: i'm so happy today is a good day</h2>
+    //                     </div>
+    //                     <div>
+    //                         <h2>1/11/22</h2>
+    //                     </div>
+    //                 </div> */}
+    //             </div>
+    //         );
+    // } else {
         return (
-                <div>
-                    {posts.map((yooo, index) =>
-                        <IndividualPost post={yooo} key={index} />
-                    )}            
-                    {/* <div style={{ borderRadius : "5%", borderColor : 'gray' }}>
-                        <div>
-                            <img src={picture} alt="picture" />
-                        </div>
-                        <div>
-                        <h2>title: a day on the beach</h2> 
-                        </div>
-                        <div>
-                            <h2>description: i'm so happy today is a good day</h2>
-                        </div>
-                        <div>
-                            <h2>1/11/22</h2>
-                        </div>
-                    </div> */}
-                </div>
-            );
-    } else {
-        return (
-            <div>
-                <p>no posts yet...</p>
-                <p>create one <Link to={"/create"}>here</Link></p>
+            <div style={{ textAlign: "center", padding: "100px 10px", margin: "100px 10px" }}>
+                <h1>no posts just yet...</h1>
+                <h2>create one <Link to={"/create"} style={{ textDecoration: "none", color: "red" }}>here</Link></h2>
             </div>
         )
     }
     
-};
+// };
 
 export default Posts;

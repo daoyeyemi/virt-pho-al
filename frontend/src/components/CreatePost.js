@@ -50,14 +50,15 @@ const CreatePost = () => {
 
     return (
         <>
-            <form onSubmit={handleSubmit}>
+            <h1 style={{ textAlign: 'center', marginBottom: '15px' }}>create</h1>
+            <form onSubmit={handleSubmit} style={{ width: "450px", margin: "10px auto" }}>
                 <div>
-                    <input onChange={handleChange} className="form-control" name="title" type="text" value={post.title} placeholder="input title here" aria-label="author" />
+                    <input style={{ margin: "10px auto" }} onChange={handleChange} className="form-control" name="title" type="text" value={post.title} placeholder="input title here" aria-label="author" />
                 </div>
                 <div>
-                    <textarea onChange={handleChange} className="form-control" name="description" type="text" value={post.description} placeholder="input description here" rows="3"></textarea>
+                    <textarea style={{ margin: "10px auto" }} onChange={handleChange} className="form-control" name="description" type="text" value={post.description} placeholder="input description here" rows="6"></textarea>
                 </div>
-                <div>
+                <div style={{ margin: "10px auto" }}>
                     <FileBase64 
                         multiple={false} 
                         // base64 is the file name
@@ -65,10 +66,9 @@ const CreatePost = () => {
                             setPost({ ...post, file: base64 })
                             console.log(post)
                         }} 
-                        onChange={console.log('asdfghjkl')}
                     />
+                    <button style={{ margin: "10px auto", width: "100%" }} type="submit" className="btn btn-primary">Submit</button>
                 </div>
-                <button type="submit" className="btn btn-primary">Submit</button>
             </form>
         </>
         

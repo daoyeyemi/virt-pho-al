@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
-// import { Post } from "../../models/postModel";
 import { useNavigate, useParams } from 'react-router-dom';
 
+import FileBase64 from 'react-file-base64';
 import axios from 'axios';
 
 const EditPost = () => {
@@ -61,14 +61,14 @@ const EditPost = () => {
     }
 
   return (
-        <form onSubmit={handleSubmit}>
+        <form onSubmit={handleSubmit} style={{ width: "450px", margin: "10px auto" }}>
             <div>
-                <input onChange={handleChange} className="form-control" name="title" type="text" value={post.title} placeholder="input title here" aria-label="title" />
+                <input style={{ margin: "10px auto" }} onChange={handleChange} className="form-control" name="title" type="text" value={post.title} placeholder="input title here" aria-label="title" />
             </div>
             <div>
-                <textarea onChange={handleChange} className="form-control" name="description" type="text" value={post.description} placeholder="input description here" rows="3"></textarea>
+                <textarea style={{ margin: "10px auto" }} onChange={handleChange} className="form-control" name="description" type="text" value={post.description} placeholder="input description here" rows="6"></textarea>
             </div>
-            {/* <div>
+            <div style={{ margin: "10px auto" }}>
                 <FileBase64 
                     multiple={false} 
                     // base64 is the file name
@@ -77,8 +77,8 @@ const EditPost = () => {
                         console.log(post)
                     }} 
                 />
-            </div> */}
-            <button type="submit" className="btn btn-primary">Submit</button>
+            </div>
+            <button style={{ width: "100%" }} type="submit" className="btn btn-primary">Submit</button>
         </form>
   );
 };
