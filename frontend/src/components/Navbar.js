@@ -3,16 +3,30 @@ import React from 'react';
 
 const Navbar = () => {
     return (
-        <nav style={{ display: "flex", justifyContent: "space-between", width: "70%", margin: "10px 15% 10px 15%" }}>
+        <nav style={{ display: "flex", justifyContent: "space-between", width: "80%", margin: "10px 10% 10px 10%" }}>
             <div>
-                <Link to={"/"}>Home</Link>
+                <h2 style={{ margin: "15px 10px 10px 10px", fontSize: "30px" }}>
+                    phojo
+                </h2>
             </div>
-            <div>
-                <Link to={"/posts"}>Posts</Link>
+            <div style={{ textAlign: 'right', display: "flex", justifyContent: "space-between" }}>
+                <div style={{ margin: "5px" }}>
+                    <Link to={"/"}>
+                        <i class="fa fa-home" aria-hidden="true" style={{ color: "black", fontSize: "50px" }}></i>
+                    </Link>
+                </div>
+                <div style={{ margin: "7.5px 5px 5px 5px" }}>
+                    <Link to={"/posts"}>
+                        <i class="fa fa-sticky-note" aria-hidden="true" style={{ color: "black", fontSize: "43px" }}></i>
+                    </Link>
+                </div>
+                <div style={{ margin: "7.5px 5px 5px 5px" }}>
+                    <Link to={"/create"}>
+                        <i class="fa fa-pencil-square-o" aria-hidden="true" style={{ color: "black", fontSize: "45px" }}></i>
+                    </Link>
+                </div>
             </div>
-            <div>
-                <Link to={"/create"}>Create</Link>
-            </div>
+            
         </nav>  
     );
 };
