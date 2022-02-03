@@ -1,55 +1,84 @@
 import Post from "../models/postModel.js";
+import User from "../models/postModel.js";
 import express from 'express';
 const router = express.Router();
 
-// we're using this to post user input into mongodb database
-router.post("/create", (req, res) => {
-    const title = req.body.title;
-    const description = req.body.description;
-    const file = req.body.file;
+router.post("/login", (req, res) => {
+    const username = req.body.username
+    const password = req.body.password
 
-    console.log(title);
-    console.log(description);
-    console.log(file);
-
-    const newPost = new Post({
-        title, 
-        description, 
-        file
-    });
-
-    newPost.save();
-})
-
-router.get("/edit/:id", async (req, res) => {
-    await Post.findById(req.params.id)
-        .then(data => res.json(data))
-});
-
-router.delete("/edit/:id", async (req, res) => {
-    await Post.deleteOne({
-        _id: req.params.id
+    const returningUser = new User({
+        username, 
+        password
     })
+
+    returningUser.save();
 })
 
-router.put("/edit/:id", async (req, res) => {
-    // let post = await Post.findById(req.params.id);
+router.post("/signup", (req, res) => {
+    const first_name = req.body.first_name
+    const last_name = req.body.last_name
+    const username = req.body.username
+    const password = req.body.password
 
-    let post = req.body;
+    const newUser = new User({
+        first_name,
+        last_name,
+        username,
+        password
+    })
 
-    // const editedPost = new Post(post);
-
-    await Post.updateOne({
-        _id: req.params.id
-    }, post)
-
-    // editedPost.save();
+    newUser.save();
 })
 
-// retrieve data and place back into ui
-router.get("/posts", async (req, res) => {
-    await Post.find()
-        .then(posts => res.json(posts));
-})
+// // we're using this to post user input into mongodb database
+// router.post("/create", (req, res) => {
+//     const title = req.body.title;
+//     const description = req.body.description;
+//     const file = req.body.file;
+
+//     console.log(title);
+//     console.log(description);
+//     console.log(file);
+
+//     const newPost = new Post({
+//         title, 
+//         description, 
+//         file
+//     });
+
+//     newPost.save();
+// })
+
+// router.get("/edit/:id", async (req, res) => {
+//     await Post.findById(req.params.id)
+//         .then(data => res.json(data))
+// });
+
+// router.delete("/edit/:id", async (req, res) => {
+//     await Post.deleteOne({
+//         _id: req.params.id
+//     })
+// })
+
+// router.put("/edit/:id", async (req, res) => {
+//     // let post = await Post.findById(req.params.id);
+
+//     let post = req.body;
+
+//     // const editedPost = new Post(post);
+
+//     await Post.updateOne({
+//         _id: req.params.id
+//     }, post)
+
+//     // editedPost.save();
+// })
+
+// // retrieve data and place back into ui
+// router.get("/posts", async (req, res) => {
+//     await Post.find()
+//         .then(posts => res.json(posts));
+// })
 
 export default router;
