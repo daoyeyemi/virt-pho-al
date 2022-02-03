@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 
 import FileBase64 from 'react-file-base64';
+import Navbar from "./Navbar.js";
 import axios from 'axios';
 import picture from '../images/new-balance-premiere-item.png';
 import { useNavigate } from "react-router-dom";
@@ -50,6 +51,7 @@ const CreatePost = () => {
 
     return (
         <>
+            <Navbar />
             <h1 style={{ textAlign: 'center', marginBottom: '15px' }}>create</h1>
             <form onSubmit={handleSubmit} style={{ width: "450px", margin: "10px auto" }}>
                 <div>

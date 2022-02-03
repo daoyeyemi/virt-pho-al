@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { useNavigate, useParams } from 'react-router-dom';
 
 import FileBase64 from 'react-file-base64';
+import Navbar from "./Navbar.js";
 import axios from 'axios';
 
 const EditPost = () => {
@@ -61,6 +62,8 @@ const EditPost = () => {
     }
 
   return (
+      <>
+        <Navbar />
         <form onSubmit={handleSubmit} style={{ width: "450px", margin: "10px auto" }}>
             <div>
                 <input style={{ margin: "10px auto" }} onChange={handleChange} className="form-control" name="title" type="text" value={post.title} placeholder="input title here" aria-label="title" />
@@ -80,6 +83,8 @@ const EditPost = () => {
             </div>
             <button style={{ width: "100%" }} type="submit" className="btn btn-primary">Submit</button>
         </form>
+      </>
+        
   );
 };
 

@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 
 import IndividualPost from './IndividualPost.js';
 import { Link } from 'react-router-dom';
+import Navbar from "./Navbar.js";
 import picture from '../images/new-balance-premiere-item.png';
 
 const Posts = () => {
@@ -50,10 +51,14 @@ const Posts = () => {
     //         );
     // } else {
         return (
-            <div style={{ textAlign: "center", padding: "100px 10px", margin: "100px 10px" }}>
-                <h1>no posts just yet...</h1>
-                <h2>create one <Link to={"/create"} style={{ textDecoration: "none", color: "red" }}>here</Link></h2>
-            </div>
+            <>
+                <Navbar /> 
+                <div style={{ textAlign: "center", padding: "100px 10px", margin: "100px 10px" }}>
+                    <h1>no posts just yet...</h1>
+                    <h2>create one <Link to={"/create"} style={{ textDecoration: "none", color: "red" }}>here</Link></h2>
+                </div>
+            </>
+           
         )
     }
     
