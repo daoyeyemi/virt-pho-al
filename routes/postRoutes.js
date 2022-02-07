@@ -1,5 +1,5 @@
 import Post from "../models/postModel.js";
-import User from "../models/postModel.js";
+import User from "../models/userModel.js";
 import express from 'express';
 const router = express.Router();
 
@@ -32,23 +32,23 @@ router.post("/signup", (req, res) => {
 })
 
 // // we're using this to post user input into mongodb database
-// router.post("/create", (req, res) => {
-//     const title = req.body.title;
-//     const description = req.body.description;
-//     const file = req.body.file;
+router.post("/create", (req, res) => {
+    const title = req.body.title;
+    const description = req.body.description;
+    const file = req.body.file;
 
-//     console.log(title);
-//     console.log(description);
-//     console.log(file);
+    console.log(title);
+    console.log(description);
+    console.log(file);
 
-//     const newPost = new Post({
-//         title, 
-//         description, 
-//         file
-//     });
+    const newPost = new Post({
+        title, 
+        description, 
+        file
+    });
 
-//     newPost.save();
-// })
+    newPost.save();
+})
 
 // router.get("/edit/:id", async (req, res) => {
 //     await Post.findById(req.params.id)
@@ -75,10 +75,10 @@ router.post("/signup", (req, res) => {
 //     // editedPost.save();
 // })
 
-// // retrieve data and place back into ui
+// retrieve data and place back into ui
 // router.get("/posts", async (req, res) => {
-//     await Post.find()
-//         .then(posts => res.json(posts));
+//     await User.find()
+//         .then(user => res.json(user));
 // })
 
 export default router;
