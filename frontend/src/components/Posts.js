@@ -5,7 +5,7 @@ import { Link } from 'react-router-dom';
 import Navbar from "./Navbar.js";
 import picture from '../images/new-balance-premiere-item.png';
 
-const Posts = () => {
+const Posts = ({ globalUsername, setGlobalUsername }) => {
 
     const [posts, setPosts] = useState([{
         title: "",
@@ -15,7 +15,7 @@ const Posts = () => {
 
     useEffect(() => {
         // "fetching" posts from backend endpoint '/posts'
-        fetch("/posts")
+        fetch("/")
             // .then(res => console.log(res))
             .then(res => {
                 if (res.ok) {

@@ -3,7 +3,7 @@ import User from "../models/userModel.js";
 import express from 'express';
 const router = express.Router();
 
-router.post("/login", (req, res) => {
+router.post("/", (req, res) => {
     const username = req.body.username
     const password = req.body.password
 
@@ -76,9 +76,9 @@ router.post("/create", (req, res) => {
 // })
 
 // retrieve data and place back into ui
-// router.get("/posts", async (req, res) => {
-//     await User.find()
-//         .then(user => res.json(user));
-// })
+router.get("/", async (req, res) => {
+    await User.find()
+        .then(user => res.json(user));
+})
 
 export default router;

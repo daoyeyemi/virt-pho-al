@@ -1,14 +1,14 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 
 import { Link } from 'react-router-dom';
 import axios from 'axios';
 
-const Login = () => {
+const Login = ({ globalUsername, setGlobalUsername }) => {
 
     const [user, setUser] = useState({
         username: "",
         password: ""
-    })
+    });
 
     const handleChange = (event) => {
         const name = event.target.name;
@@ -20,7 +20,7 @@ const Login = () => {
             }
         })
         console.log(user)
-    }
+    };
 
     const handleSubmit = (event) => {
         event.preventDefault();
@@ -30,8 +30,11 @@ const Login = () => {
             password: user.password
         }
         
-        axios.post("http://localhost:3001/login", loggedInUser)
-    }
+        axios.post("http://localhost:3001/", loggedInUser);
+
+        setGlobalUsername(loggedInUser.username);
+        console.log(globalUsername);
+    };
 
     return (
         <>

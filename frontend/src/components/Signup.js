@@ -3,7 +3,7 @@ import React, { useState } from 'react';
 
 import axios from 'axios';
 
-const Signup = () => {
+const Signup = ({ setGlobalUsername }) => {
 
     const [user, setUser] = useState({
         first_name : "",
@@ -38,8 +38,8 @@ const Signup = () => {
         }
 
         axios.post("http://localhost:3001/signup", newUser);
-
-        history("/posts");
+        setGlobalUsername(newUser.username);
+        history("/");
     }
     
     return (

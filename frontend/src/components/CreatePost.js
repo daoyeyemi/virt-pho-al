@@ -46,7 +46,7 @@ const CreatePost = () => {
         // separates users from websites they browse
         axios.post("http://localhost:3001/create", newPost);
 
-        history("/posts");
+        history("/");
     }
 
     return (
